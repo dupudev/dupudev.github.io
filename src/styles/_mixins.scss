@@ -1,0 +1,58 @@
+@use './vars' as *;
+
+@mixin flex(
+  $align-items: stretch,
+  $justify-content: flex-start,
+  $flex-direction: row
+) {
+  display: flex;
+  align-items: $align-items;
+  justify-content: $justify-content;
+  flex-direction: $flex-direction;
+}
+
+@mixin btn($fs, $border, $bg_hover) {
+  background-color: $clr_bg-dark;
+  color: $clr_text-light;
+  font-size: $fs;
+  padding: 0.5em 1.5em;
+  border: 1px solid $border;
+  transition: transform $transition, background-color $transition;
+  &:hover {
+    background-color: $bg_hover;
+    transform: scale(1.1);
+  }
+}
+
+@mixin responsive($device) {
+  @if $device == x-small {
+    @media (max-width: 576px) {
+      @content;
+    }
+  }
+  @if $device == small {
+    @media (min-width: 576px) and (max-width: 768px) {
+      @content;
+    }
+  }
+  @if $device == medium {
+    @media (min-width: 768px) and (max-width: 992px) {
+      @content;
+    }
+  }
+  @if $device == large {
+    @media (min-width: 992px) and (max-width: 1200px) {
+      @content;
+    }
+  }
+  @if $device == x-large {
+    @media (min-width: 1200px) and (max-width: 1400px) {
+      @content;
+    }
+  }
+  @if $device == xx-large {
+    @media (min-width: 1400px) {
+      @content;
+    }
+  }
+}

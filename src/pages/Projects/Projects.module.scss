@@ -1,0 +1,337 @@
+@use '../../styles/' as *;
+
+.red {
+  color: $clr_red;
+}
+
+.green {
+  color: $clr_green;
+}
+
+.yellow {
+  color: $clr_yellow;
+}
+.blue {
+  color: $clr_blue;
+}
+.sign {
+  color: $clr_blue-light;
+}
+
+.purple {
+  color: $clr_purple;
+}
+
+.projects {
+  padding: 2rem 1rem;
+  .function {
+    position: relative;
+    display: inline-block;
+    @media (max-width: 1200px) {
+      visibility: hidden;
+    }
+
+    .fn_h5:nth-child(1) {
+      position: relative;
+      margin: 0;
+      .before {
+        position: absolute;
+        background-color: $clr_yellow;
+        height: 1px;
+        left: 0;
+        right: 1ch;
+        bottom: 0;
+      }
+      &.anime {
+        .before {
+          left: 100%;
+          animation: horizontal-line 0.5s 3s forwards;
+        }
+      }
+      @keyframes horizontal-line {
+        from {
+          left: 100%;
+        }
+        to {
+          left: 0;
+        }
+      }
+      .after {
+        position: absolute;
+        display: flex;
+        color: $clr_yellow;
+        background-color: $clr_yellow-dark;
+        border-left: 1px solid $clr_yellow;
+        left: 0;
+        width: 2ch;
+        top: 100%;
+        span {
+          color: $clr_text-light;
+        }
+      }
+      &.anime {
+        .after {
+          background-color: transparent;
+          color: transparent;
+          border-left: 1px solid transparent;
+          width: 0;
+          animation: vertical-line 0.5s 3.5s forwards;
+          span {
+            color: transparent;
+            animation: semicolon 0.5s 3.5s forwards;
+          }
+        }
+      }
+
+      @keyframes vertical-line {
+        from {
+          background-color: transparent;
+          color: transparent;
+          border-left: 1px solid transparent;
+          width: 0;
+        }
+        to {
+          background-color: $clr_yellow-dark;
+          color: $clr_yellow;
+          border-left: 1px solid $clr_yellow;
+          width: 2ch;
+        }
+      }
+
+      &.anime:before {
+        position: absolute;
+        content: '';
+        background-color: $clr_bg-light;
+        inset: 0;
+        left: 0;
+        animation: typing 2s steps(24) 1s forwards;
+      }
+      &.anime::after {
+        position: absolute;
+        content: '';
+        background-color: transparent;
+        top: 0;
+        bottom: 0;
+        width: 0.145ch;
+        animation: typing 2s steps(24) 1s forwards, blinking 0.8s 5;
+      }
+    }
+    .fn_h5:nth-child(2) {
+      display: inline-block;
+      position: relative;
+      margin: 0 0 0 2ch;
+      .after {
+        position: absolute;
+        display: flex;
+        color: $clr_green;
+        background-color: $clr_green-dark;
+        border-left: 1px solid rgba(152, 195, 121, 0.3);
+        width: 2ch;
+        left: 0;
+        top: 100%;
+        span {
+          color: $clr_text-light;
+        }
+      }
+
+      &.anime {
+        .after {
+          background-color: transparent;
+          color: transparent;
+          border-left: 1px solid transparent;
+          width: 0;
+          animation: vertical-line2 0.5s 5s forwards;
+          span {
+            color: transparent;
+            animation: semicolon 0.5s 5s forwards;
+          }
+        }
+      }
+      @keyframes semicolon {
+        from {
+          color: transparent;
+        }
+        to {
+          color: $clr_text-light;
+        }
+      }
+
+      @keyframes vertical-line2 {
+        from {
+          background-color: transparent;
+          color: transparent;
+          border-left: 1px solid transparent;
+          width: 0;
+        }
+        to {
+          background-color: $clr_green-dark;
+          color: $clr_green;
+          border-left: 1px solid rgba(152, 195, 121, 0.3);
+          width: 2ch;
+        }
+      }
+      &.anime:before {
+        position: absolute;
+        content: '';
+        background-color: $clr_bg-light;
+        inset: 0;
+        left: 0;
+        animation: typing 1s steps(8) 4s forwards;
+      }
+      &.anime::after {
+        position: absolute;
+        content: '';
+        background-color: transparent;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 0.145ch;
+        animation: typing 1s steps(8) 4s forwards, blinking 0.8s 4s 3;
+      }
+    }
+    @keyframes typing {
+      from {
+        left: 0;
+      }
+      to {
+        left: 100%;
+      }
+    }
+    @keyframes blinking {
+      0% {
+        background-color: transparent;
+      }
+      25% {
+        background-color: $clr_blue;
+      }
+      50% {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .content {
+    padding: 2rem 0 2rem 3rem;
+    overflow: hidden;
+
+    .buttons {
+      padding-bottom: 4rem;
+      &.anime {
+        opacity: 0;
+        transform: translateY(50px);
+        animation: show-up 0.5s 5.5s forwards;
+        @media (max-width: 1200px) {
+          animation-delay: 0.5s;
+        }
+      }
+      @keyframes show-up {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .btn_all {
+        @include btn(1.1rem, $clr_green, $clr_green-dark);
+        &.active {
+          background-color: $clr_green-dark;
+        }
+      }
+      .btn_react {
+        @include btn(1.1rem, $clr_blue, $clr_blue-dark);
+        &.active {
+          background-color: $clr_blue-dark;
+        }
+      }
+      .btn_static {
+        @include btn(1.1rem, $clr_purple, $clr_purple-dark);
+        &.active {
+          background-color: $clr_purple-dark;
+        }
+      }
+    }
+    .projects_row {
+      &.anime {
+        opacity: 0;
+        transform: translateY(50px);
+        animation: show-up 0.5s 6s forwards;
+        @media (max-width: 1200px) {
+          animation-delay: 1s;
+        }
+      }
+
+      article {
+        border-radius: 15px;
+        overflow: hidden;
+        transition: $transition;
+        &:hover {
+          .project_img {
+            transform: scale(1.1);
+          }
+        }
+        &.react {
+          background-color: $clr_blue-dark;
+          &:hover {
+            box-shadow: 0 0 10px 3px $clr_blue;
+            color: $clr_blue;
+          }
+        }
+        &.static {
+          background-color: $clr_purple-dark;
+          &:hover {
+            box-shadow: 0 0 10px 3px $clr_purple;
+            color: $clr_purple;
+          }
+        }
+        .project_img {
+          border-radius: 15px;
+          overflow: hidden;
+          transition: $transition;
+        }
+        .project_text {
+          h4 {
+            font-size: 1.75rem;
+            text-align: center;
+            margin: 2rem 0;
+          }
+          .btn_run {
+            @include btn(1rem, $clr_red, $clr_red-dark);
+          }
+          .btn_github {
+            @include btn(1rem, $clr_yellow, $clr_yellow-dark);
+          }
+        }
+      }
+    }
+  }
+}
+
+/// Responsiveness
+
+@media (max-width: 1200px) {
+  .projects {
+    padding: 0 1rem;
+    .content {
+      padding: 1rem 2rem 4rem 0;
+    }
+  }
+}
+
+@include responsive(x-small) {
+  .projects {
+    .content {
+      article {
+        .project_text {
+          h4 {
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 1rem 0;
+          }
+        }
+      }
+    }
+  }
+}

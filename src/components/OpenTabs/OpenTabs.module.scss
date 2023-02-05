@@ -1,0 +1,71 @@
+@use '../../styles/' as *;
+
+.open_tabs {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  @include flex();
+  font-family: $font-secondary;
+  background-color: $clr_bg-dark;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .tab {
+    @include flex(center);
+    gap: 0.3rem;
+    border-right: 1px solid rgb(25, 25, 25);
+    flex-shrink: 0;
+    text-align: center;
+    padding: 0.5rem 0.75rem;
+    line-height: 1;
+
+    &.over {
+      background-color: $clr_bg-select;
+      color: $clr_yellow;
+      button,
+      img {
+        pointer-events: none;
+      }
+    }
+
+    img {
+      width: 1rem;
+      height: 1rem;
+    }
+    button {
+      background-color: inherit;
+      border: none;
+      color: transparent;
+      margin-left: 0.5rem;
+      line-height: 0.8;
+      border-radius: 0.35rem;
+      padding: 0.25rem;
+      &:hover {
+        background-color: lighten($color: $clr_bg-select, $amount: 5);
+      }
+      @media (max-width: 991px) {
+        color: $clr_text-light;
+      }
+    }
+    &:hover {
+      cursor: pointer;
+      background-color: $clr_bg-select;
+      color: $clr_text-light;
+      button {
+        color: $clr_text-light;
+      }
+    }
+    &.active {
+      border-bottom: 1px solid $clr_text-light;
+      background-color: $clr_bg-light;
+      &.over,
+      &:hover {
+        background-color: $clr_bg-select;
+      }
+      button {
+        color: $clr_text-light;
+      }
+    }
+  }
+}

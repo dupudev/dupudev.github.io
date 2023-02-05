@@ -1,0 +1,349 @@
+@use '../../styles/' as *;
+
+.red {
+  color: $clr_red;
+}
+
+.green {
+  color: $clr_green;
+}
+
+.yellow {
+  color: $clr_yellow;
+}
+.blue {
+  color: $clr_blue;
+}
+.sign {
+  color: $clr_blue-light;
+}
+
+.purple {
+  color: $clr_purple;
+}
+
+.about {
+  padding: 2rem 1rem;
+  .function {
+    position: relative;
+    display: inline-block;
+    @media (max-width: 1200px) {
+      visibility: hidden;
+    }
+
+    .fn_h5:nth-child(1) {
+      position: relative;
+      margin: 0;
+      .before {
+        position: absolute;
+        background-color: $clr_yellow;
+        height: 1px;
+        left: 0;
+        right: 1ch;
+        bottom: 0;
+      }
+      &.anime {
+        .before {
+          left: 100%;
+          animation: horizontal-line 0.5s 3s forwards;
+        }
+      }
+      @keyframes horizontal-line {
+        from {
+          left: 100%;
+        }
+        to {
+          left: 0;
+        }
+      }
+      .after {
+        position: absolute;
+        display: flex;
+        color: $clr_yellow;
+        background-color: $clr_yellow-dark;
+        border-left: 1px solid $clr_yellow;
+        left: 0;
+        width: 2ch;
+        top: 100%;
+        span {
+          color: $clr_text-light;
+        }
+      }
+      &.anime {
+        .after {
+          background-color: transparent;
+          color: transparent;
+          border-left: 1px solid transparent;
+          width: 0;
+          animation: vertical-line 0.5s 3.5s forwards;
+          span {
+            color: transparent;
+            animation: semicolon 0.5s 3.5s forwards;
+          }
+        }
+      }
+
+      @keyframes vertical-line {
+        from {
+          background-color: transparent;
+          color: transparent;
+          border-left: 1px solid transparent;
+          width: 0;
+        }
+        to {
+          background-color: $clr_yellow-dark;
+          color: $clr_yellow;
+          border-left: 1px solid $clr_yellow;
+          width: 2ch;
+        }
+      }
+
+      &.anime:before {
+        position: absolute;
+        content: '';
+        background-color: $clr_bg-light;
+        inset: 0;
+        left: 0;
+        animation: typing 2s steps(21) 1s forwards;
+      }
+      &.anime::after {
+        position: absolute;
+        content: '';
+        background-color: transparent;
+        top: 0;
+        bottom: 0;
+        width: 0.145ch;
+        animation: typing 2s steps(21) 1s forwards, blinking 0.8s 5;
+      }
+    }
+    .fn_h5:nth-child(2) {
+      display: inline-block;
+      position: relative;
+      margin: 0 0 0 2ch;
+      .after {
+        position: absolute;
+        display: flex;
+        color: $clr_green;
+        background-color: $clr_green-dark;
+        border-left: 1px solid rgba(152, 195, 121, 0.3);
+        width: 2ch;
+        left: 0;
+        top: 100%;
+        span {
+          color: $clr_text-light;
+        }
+      }
+
+      &.anime {
+        .after {
+          background-color: transparent;
+          color: transparent;
+          border-left: 1px solid transparent;
+          width: 0;
+          animation: vertical-line2 0.5s 5s forwards;
+          span {
+            color: transparent;
+            animation: semicolon 0.5s 5s forwards;
+          }
+        }
+      }
+      @keyframes semicolon {
+        from {
+          color: transparent;
+        }
+        to {
+          color: $clr_text-light;
+        }
+      }
+
+      @keyframes vertical-line2 {
+        from {
+          background-color: transparent;
+          color: transparent;
+          border-left: 1px solid transparent;
+          width: 0;
+        }
+        to {
+          background-color: $clr_green-dark;
+          color: $clr_green;
+          border-left: 1px solid rgba(152, 195, 121, 0.3);
+          width: 2ch;
+        }
+      }
+      &.anime:before {
+        position: absolute;
+        content: '';
+        background-color: $clr_bg-light;
+        inset: 0;
+        left: 0;
+        animation: typing 1s steps(8) 4s forwards;
+      }
+      &.anime::after {
+        position: absolute;
+        content: '';
+        background-color: transparent;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 0.145ch;
+        animation: typing 1s steps(8) 4s forwards, blinking 0.8s 4s 3;
+      }
+    }
+    @keyframes typing {
+      from {
+        left: 0;
+      }
+      to {
+        left: 100%;
+      }
+    }
+    @keyframes blinking {
+      0% {
+        background-color: transparent;
+      }
+      25% {
+        background-color: $clr_blue;
+      }
+      50% {
+        background-color: transparent;
+      }
+    }
+  }
+  .content {
+    padding: 2rem 0 2rem 5rem;
+    overflow: hidden;
+    .heading {
+      font-size: 3.5rem;
+      line-height: 1.25;
+      span {
+        display: inline-block;
+        font-weight: 300;
+        background-image: linear-gradient($clr_green-dark, $clr_green-dark);
+        background-size: 100% 45%;
+        background-repeat: no-repeat;
+        background-position: left bottom;
+        span {
+          font-weight: 600;
+        }
+
+        &:nth-child(1).anime {
+          transform: translateX(-50px);
+          opacity: 0;
+          animation: right 0.5s 5.5s forwards;
+          @media (min-width: 992px) and (max-width: 1200px) {
+            animation-delay: 0.5s;
+          }
+          @media (max-width: 992px) {
+            animation-delay: 1s;
+          }
+        }
+        &:nth-child(3).anime {
+          transform: translateX(-50px);
+          opacity: 0;
+          animation: right 0.5s 6s forwards;
+          @media (min-width: 992px) and (max-width: 1200px) {
+            animation-delay: 1s;
+          }
+          @media (max-width: 992px) {
+            animation-delay: 1.5s;
+          }
+        }
+      }
+    }
+    p {
+      margin-top: 2rem;
+      &.anime {
+        transform: translateY(50px);
+        opacity: 0;
+        animation: up 0.5s 6.5s forwards;
+        @media (min-width: 992px) and (max-width: 1200px) {
+          animation-delay: 1.5s;
+        }
+        @media (max-width: 992px) {
+          animation-delay: 2s;
+        }
+      }
+    }
+    .btn_download{
+      
+    }
+
+    img {
+      border-radius: 50%;
+      &.anime {
+        transform: translateX(50px);
+        opacity: 0;
+        animation: left 0.5s 7s forwards;
+        @media (min-width: 992px) and (max-width: 1200px) {
+          animation-delay: 2s;
+        }
+        @media (max-width: 992px) {
+          animation-delay: 0.5s;
+        }
+      }
+    }
+  }
+  @keyframes up {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes right {
+    from {
+      transform: translateX(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes left {
+    from {
+      transform: translateX(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+/// Responsiveness
+
+@media (max-width: 1200px) {
+  .about {
+    padding: 0 1rem;
+    .content {
+      padding: 0 3rem 4rem 0;
+      .heading {
+        font-size: 3rem;
+      }
+    }
+  }
+}
+@media (max-width: 991px) {
+  .about {
+    .content {
+      p {
+        text-align: justify;
+      }
+    }
+  }
+}
+
+@include responsive(x-small) {
+  .about {
+    .content {
+      .heading {
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
