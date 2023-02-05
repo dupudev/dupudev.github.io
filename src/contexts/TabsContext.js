@@ -4,12 +4,12 @@ const TabsContext = createContext();
 
 export const TabsProvider = ({ children }) => {
   const [tabs, setTabs] = useState([
-    // {
-    //   label: 'Home.js',
-    //   link: '/',
-    //   isActive: true,
-    //   dragOver: false,
-    // },
+    {
+      label: 'Home.js',
+      link: '/',
+      isActive: true,
+      dragOver: false,
+    },
   ]);
 
   return (

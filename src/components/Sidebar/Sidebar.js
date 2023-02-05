@@ -30,7 +30,10 @@ const Sidebar = () => {
   const createTab = (target) => {
     if (window.innerWidth < 1620) setSidebarOpen(false);
 
-    const link = target.href.split(`http://${target.host}/#`)[1];
+    // const link = target.href.split(`http://${target.host}/#`)[1];
+    const link = target.hash.split('#')[1];
+
+    console.log(target.href);
 
     let tabIdx;
     let filterTabs = tabs.filter((tab, idx) => {

@@ -70,6 +70,9 @@ const OpenTabs = () => {
   };
 
   const handleSelectTab = (tab, idx) => {
+    console.log(location);
+    console.log(tab.link);
+
     navigate(tab.link);
     setTabs((prev) => {
       prev.forEach((tab) => {
