@@ -251,7 +251,8 @@
       }
     }
     p {
-      margin-top: 2rem;
+      padding: 2rem 0;
+      margin: 0;
       &.anime {
         transform: translateY(50px);
         opacity: 0;
@@ -265,7 +266,8 @@
       }
     }
     .btn_download{
-      
+      @include btn(1.1rem, $clr_green, $clr_green-dark);
+      display: inline-block;
     }
 
     img {

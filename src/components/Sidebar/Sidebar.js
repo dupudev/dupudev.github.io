@@ -18,9 +18,9 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import TabsContext from '../../contexts/TabsContext';
 
-const Sidebar = () => {
+const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const location = useLocation();
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  
   const { tabs, setTabs } = useContext(TabsContext);
 
   useEffect(() => {
@@ -28,9 +28,11 @@ const Sidebar = () => {
   }, []);
 
   const createTab = (target) => {
-    if (window.innerWidth < 1620) setSidebarOpen(false);
+    
 
-    const link = target.href.split(`http://${target.host}`)[1];
+    console.log(target);
+
+    const link = target.href.split(`http://${target.host}/#`)[1];
 
     let tabIdx;
     let filterTabs = tabs.filter((tab, idx) => {

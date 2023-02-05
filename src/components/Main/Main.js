@@ -11,7 +11,7 @@ import NotFound from '../../pages/NotFound/NotFound';
 import React, { useState, useEffect, useRef } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
-const Main = () => {
+const Main = ({ sidebarOpen, setSidebarOpen }) => {
   const main = useRef();
   const { pathname } = useLocation();
 
@@ -28,7 +28,7 @@ const Main = () => {
 
   return (
     <main ref={main} className='overflow-auto'>
-      <OpenTabs />
+      <OpenTabs sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       <Routes>
         <Route
           path='/'
@@ -44,7 +44,7 @@ const Main = () => {
           }
         />
         <Route
-          path='projects'
+          path='/projects'
           element={
             <Projects
               projectsAnime={projectsAnime}
@@ -53,13 +53,13 @@ const Main = () => {
           }
         />
         <Route
-          path='about'
+          path='/about'
           element={
             <About aboutAnime={aboutAnime} setAboutAnime={setAboutAnime} />
           }
         />
         <Route
-          path='contact'
+          path='/contact'
           element={
             <Contact
               contactAnime={contactAnime}

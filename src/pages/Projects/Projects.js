@@ -147,7 +147,7 @@ const Projects = ({ projectsAnime, setProjectsAnime }) => {
                           className={style.btn_github}
                           href={project.github_url}
                         >
-                          GitHub
+                          View Code
                         </a>
                       </div>
                     </div>

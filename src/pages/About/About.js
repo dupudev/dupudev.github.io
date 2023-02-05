@@ -81,11 +81,14 @@ const About = ({ aboutAnime, setAboutAnime }) => {
               and I always give my best to find solution for any problem.
             </p>
             <a
-              href=''
+              href='./data/resume.pdf'
+              download='[CV] Dušan Puzigaća.pdf'
               className={`${style.btn_download} ${
                 aboutAnime ? style.anime : undefined
               }}`}
-            ></a>
+            >
+              downloadCV()
+            </a>
           </Col>
           <Col
             xs={{ span: 10, offset: 1, order: 1 }}

@@ -319,7 +319,7 @@ const Home = ({
                   href='https://github.com/dupudev/react-weather-app'
                   className={style.btn_code}
                 >
-                  GitHub
+                  View Code
                 </a>
               </div>
             </Col>
@@ -360,7 +360,7 @@ const Home = ({
                   href='https://github.com/dupudev/react-simple-web-shop'
                   className={style.btn_code}
                 >
-                  GitHub
+                  View Code
                 </a>
               </div>
             </Col>

@@ -5,7 +5,7 @@ import React, { useContext, useState, useEffect, useRef } from 'react';
 import TabsContext from '../../contexts/TabsContext';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-const OpenTabs = () => {
+const OpenTabs = ({ sidebarOpen, setSidebarOpen }) => {
   const dragTab = useRef();
   const dragOverTab = useRef();
   const location = useLocation();
@@ -13,30 +13,77 @@ const OpenTabs = () => {
   const { tabs, setTabs } = useContext(TabsContext);
   const [draging, setDraging] = useState(false);
 
-
   /// Ako se sajtu pristupa preko linka, ovde proveravam da li je unet link sa postojecom stranicom. Ako jeste, ta stranica se otvara u prvom tabu, ako nije, otvara se stranice Error.
   useEffect(() => {
-    let initialLabel;
+    if (window.innerWidth < 1620) setSidebarOpen(false);
 
-    if (location.pathname != '/') {
-      const tempLabel = location.pathname.split('/')[1];
-      initialLabel = `${tempLabel[0].toUpperCase()}${tempLabel.slice(1)}.js`;
-    } else {
-      initialLabel = 'Home.js';
+    tabs.forEach((tab) => {
+      tab.isActive = false;
+    });
+
+    let tempIdx;
+    const tempPage = pages.filter((page, idx) => {
+      if (location.pathname == page.link) {
+        tempIdx = idx;
+        return page;
+      }
+    });
+
+    let tabIdx;
+    let filterTabs = tabs.filter((tab, idx) => {
+      if (tab.link === location.pathname) {
+        tabIdx = idx;
+        return tab;
+      }
+    });
+
+    let errorIdx;
+    let errorTab = tabs.filter((tab, idx) => {
+      if (tab.label === 'Error.js') {
+        errorIdx = idx;
+        return tab;
+      }
+    });
+
+    if (tempPage.length > 0 && filterTabs.length > 0) {
+      setTabs((prev) => {
+        prev[tabIdx].isActive = true;
+        return [...prev];
+      });
+    } else if (tempPage.length > 0 && filterTabs.length === 0) {
+      setTabs((prev) => {
+        return [
+          ...prev,
+          {
+            label: tempPage[0].label,
+            link: tempPage[0].link,
+            isActive: true,
+            dragOver: false,
+          },
+        ];
+      });
+    } else if (tempPage.length === 0 && errorTab.length > 0) {
+      setTabs((prev) => {
+        prev[errorIdx].isActive = true;
+        prev[errorIdx].link = location.pathname;
+        return [...prev];
+      });
+    } else if (tempPage.length === 0 && errorTab.length === 0) {
+      setTabs((prev) => {
+        return [
+          ...prev,
+          {
+            label: 'Error.js',
+            link: location.pathname,
+            isActive: true,
+            dragOver: false,
+          },
+        ];
+      });
     }
+  }, [location]);
 
-    const initialLabelValid = pages.some((page) => page.label === initialLabel);
-    setTabs([
-      {
-        label: initialLabelValid ? initialLabel : 'Error.js',
-        link: location.pathname,
-        isActive: true,
-      },
-    ]);
-  }, []);
-
-  // let dragTab;
-  // let dragOverTab;
+  
 
   const handleDragStart = (idx) => {
     dragTab.current = idx;
