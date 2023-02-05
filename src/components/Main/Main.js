@@ -11,7 +11,7 @@ import NotFound from '../../pages/NotFound/NotFound';
 import React, { useState, useEffect, useRef } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
-const Main = ({ sidebarOpen, setSidebarOpen }) => {
+const Main = () => {
   const main = useRef();
   const { pathname } = useLocation();
 
@@ -28,7 +28,7 @@ const Main = ({ sidebarOpen, setSidebarOpen }) => {
 
   return (
     <main ref={main} className='overflow-auto'>
-      <OpenTabs sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      <OpenTabs />
       <Routes>
         <Route
           path='/'

@@ -84,8 +84,8 @@ const About = ({ aboutAnime, setAboutAnime }) => {
               href='./data/resume.pdf'
               download='[CV] Dušan Puzigaća.pdf'
               className={`${style.btn_download} ${
-                aboutAnime ? style.anime : undefined
-              }}`}
+                aboutAnime ? style.anime : ''
+              }`}
             >
               downloadCV()
             </a>
@@ -104,7 +104,7 @@ const About = ({ aboutAnime, setAboutAnime }) => {
               onAnimationEnd={() =>
                 setTimeout(() => {
                   setAboutAnime(false);
-                }, 2000)
+                }, 2500)
               }
             />
           </Col>

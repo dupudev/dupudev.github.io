@@ -265,9 +265,20 @@
         }
       }
     }
-    .btn_download{
+    .btn_download {
       @include btn(1.1rem, $clr_green, $clr_green-dark);
       display: inline-block;
+      &.anime {
+        transform: translateY(50px);
+        opacity: 0;
+        animation: up 0.5s 7s forwards;
+        @media (min-width: 992px) and (max-width: 1200px) {
+          animation-delay: 1.5s;
+        }
+        @media (max-width: 992px) {
+          animation-delay: 2s;
+        }
+      }
     }
 
     img {
@@ -275,9 +286,9 @@
       &.anime {
         transform: translateX(50px);
         opacity: 0;
-        animation: left 0.5s 7s forwards;
+        animation: left 0.5s 7.5s forwards;
         @media (min-width: 992px) and (max-width: 1200px) {
-          animation-delay: 2s;
+          animation-delay: 2.5s;
         }
         @media (max-width: 992px) {
           animation-delay: 0.5s;

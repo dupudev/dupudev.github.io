@@ -18,9 +18,9 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import TabsContext from '../../contexts/TabsContext';
 
-const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
+const Sidebar = () => {
   const location = useLocation();
-  
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const { tabs, setTabs } = useContext(TabsContext);
 
   useEffect(() => {
@@ -28,9 +28,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   }, []);
 
   const createTab = (target) => {
-    
-
-    console.log(target);
+    if (window.innerWidth < 1620) setSidebarOpen(false);
 
     const link = target.href.split(`http://${target.host}/#`)[1];
 
@@ -67,7 +65,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   };
 
   return (
-    // ${style.closed}
     <div className={`${style.sidebar} ${!sidebarOpen && style.closed}`}>
       {/* side menu */}
       <div className={`${style.sidebar_left}`}>
