@@ -1,0 +1,12 @@
+@use '../../styles/' as *;
+
+.error {
+  h4 {
+    color: $clr_red;
+    font-size: 7rem;
+  }
+  button {
+    @include btn(1.1rem, $clr_yellow, $clr_yellow-dark);
+    margin-top: 1rem;
+  }
+}

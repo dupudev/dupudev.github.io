@@ -17,7 +17,6 @@ const Main = () => {
 
   const [homeAnime, setHomeAnime] = useState(true);
   const [cta2Anime, setCta2Anime] = useState(true);
-  const [recentAnime, setRecentAnime] = useState(true);
   const [projectsAnime, setProjectsAnime] = useState(true);
   const [contactAnime, setContactAnime] = useState(true);
   const [aboutAnime, setAboutAnime] = useState(true);
@@ -38,8 +37,6 @@ const Main = () => {
               setHomeAnime={setHomeAnime}
               cta2Anime={cta2Anime}
               setCta2Anime={setCta2Anime}
-              recentAnime={recentAnime}
-              setRecentAnime={setRecentAnime}
             />
           }
         />

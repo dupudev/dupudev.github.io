@@ -10,15 +10,10 @@ import { useNavigate } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
 import TabsContext from '../../contexts/TabsContext';
 import Marquee from 'react-fast-marquee';
+import { pages } from '../../pages';
+import { motion } from 'framer-motion';
 
-const Home = ({
-  homeAnime,
-  setHomeAnime,
-  cta2Anime,
-  setCta2Anime,
-  recentAnime,
-  setRecentAnime,
-}) => {
+const Home = ({ homeAnime, setHomeAnime, cta2Anime, setCta2Anime }) => {
   const navigate = useNavigate();
   const home = useRef();
   const [blockHeight, setBlockHeight] = useState(null);
@@ -44,25 +39,8 @@ const Home = ({
     setBlockHeight(home.current.scrollHeight);
   }, []);
 
-  const about = {
-    label: 'About.js',
-    link: '/about',
-  };
-  const projects = {
-    label: 'Projects.js',
-    link: '/projects',
-  };
-  const contact = {
-    label: 'Contact.js',
-    link: '/contact',
-  };
-
   const openNewTab = (openTab) => {
     navigate(openTab.link);
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
 
     let tabIdx;
     let filterTabs = tabs.filter((tab, idx) => {
@@ -133,7 +111,11 @@ const Home = ({
         </h5>
       </div>
 
-      <div className={style.content}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className={style.content}
+      >
         <section className={style.hero}>
           <Row>
             <Col
@@ -170,9 +152,9 @@ const Home = ({
                       className={`${style.cta_btn} ${
                         homeAnime ? style.anime : undefined
                       } align-self-center`}
-                      onClick={() => openNewTab(contact)}
+                      onClick={() => openNewTab(pages[3])}
                     >
-                      click here
+                      clickHere()
                     </button>
                     <h5 className={homeAnime ? style.anime : undefined}>
                       <span className={style.yellow}>{'}'}</span>&nbsp;
@@ -311,15 +293,17 @@ const Home = ({
               <div className='d-flex gap-3'>
                 <a
                   href='https://dupudev.github.io/react-weather-app/'
+                  target='_blank'
                   className={style.btn_run}
                 >
                   runApp()
                 </a>
                 <a
                   href='https://github.com/dupudev/react-weather-app'
+                  target='_blank'
                   className={style.btn_code}
                 >
-                  View Code
+                  viewCode()
                 </a>
               </div>
             </Col>
@@ -352,15 +336,17 @@ const Home = ({
               <div className='d-flex gap-3'>
                 <a
                   href='https://dupudev.github.io/react-simple-web-shop/'
+                  target='_blank'
                   className={style.btn_run}
                 >
                   runApp()
                 </a>
                 <a
                   href='https://github.com/dupudev/react-simple-web-shop'
+                  target='_blank'
                   className={style.btn_code}
                 >
-                  View Code
+                  viewCode()
                 </a>
               </div>
             </Col>
@@ -378,7 +364,6 @@ const Home = ({
                 className={`${style.project_img} ${
                   storeImgInView ? style.anime : ''
                 }`}
-                onAnimationEnd={() => setRecentAnime(false)}
               >
                 <img src='./img/projects/fake_store.png' alt='weather app' />
               </div>
@@ -401,7 +386,7 @@ const Home = ({
               className={`${style.cta2_btn1} ${
                 cta2Anime && cta2InView ? style.anime : ''
               } align-self-center`}
-              onClick={() => openNewTab(projects)}
+              onClick={() => openNewTab(pages[1])}
             >
               projects()
             </button>
@@ -417,7 +402,7 @@ const Home = ({
               className={`${style.cta2_btn2} ${
                 cta2Anime && cta2InView ? style.anime : ''
               } align-self-center`}
-              onClick={() => openNewTab(about)}
+              onClick={() => openNewTab(pages[2])}
             >
               aboutMe()
             </button>
@@ -430,7 +415,7 @@ const Home = ({
               className={`${style.cta2_btn3} ${
                 cta2Anime && cta2InView ? style.anime : ''
               } align-self-center`}
-              onClick={() => openNewTab(contact)}
+              onClick={() => openNewTab(pages[3])}
             >
               contactMe()
             </button>
@@ -442,7 +427,7 @@ const Home = ({
             </h5>
           </div>
         </div>
-      </div>
+      </motion.div>
     </Container>
   );
 };

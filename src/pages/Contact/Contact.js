@@ -9,6 +9,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { VscMail, VscGithubInverted } from 'react-icons/vsc';
 import { FaLinkedinIn } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 const Contact = ({ contactAnime, setContactAnime }) => {
   const contact = useRef();
@@ -98,7 +99,11 @@ const Contact = ({ contactAnime, setContactAnime }) => {
         </h5>
       </div>
 
-      <div className={style.content}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className={style.content}
+      >
         <Row className='g-5'>
           <Col xs={12} md={6} xl={{ span: 5, offset: 1 }}>
             <div className={style.heading}>
@@ -113,7 +118,10 @@ const Contact = ({ contactAnime, setContactAnime }) => {
                 } `}
               >
                 <VscMail className={style.icon} />
-                <a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=puzigaca.dusan5@gmail.com'>
+                <a
+                  href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=puzigaca.dusan5@gmail.com'
+                  target='_blank'
+                >
                   puzigaca.dusan5@gmail.com
                 </a>
               </div>
@@ -195,7 +203,7 @@ const Contact = ({ contactAnime, setContactAnime }) => {
             </form>
           </Col>
         </Row>
-      </div>
+      </motion.div>
     </Container>
   );
 };

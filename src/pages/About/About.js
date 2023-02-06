@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const About = ({ aboutAnime, setAboutAnime }) => {
   const about = useRef();
@@ -56,7 +57,11 @@ const About = ({ aboutAnime, setAboutAnime }) => {
         </h5>
       </div>
 
-      <div className={style.content}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className={style.content}
+      >
         <Row className='gap-5 gap-lg-0'>
           <Col
             xs={{ span: 12, order: 2 }}
@@ -109,8 +114,7 @@ const About = ({ aboutAnime, setAboutAnime }) => {
             />
           </Col>
         </Row>
-        <div></div>
-      </div>
+      </motion.div>
     </Container>
   );
 };

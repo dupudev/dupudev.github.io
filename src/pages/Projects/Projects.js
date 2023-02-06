@@ -140,14 +140,19 @@ const Projects = ({ projectsAnime, setProjectsAnime }) => {
                         {project.title}
                       </h4>
                       <div className='d-flex gap-3 flex-row flex-sm-row align-items-center justify-content-center'>
-                        <a className={style.btn_run} href={project.url}>
+                        <a
+                          className={style.btn_run}
+                          href={project.url}
+                          target='_blank'
+                        >
                           runApp()
                         </a>
                         <a
                           className={style.btn_github}
                           href={project.github_url}
+                          target='_blank'
                         >
-                          View Code
+                          viewCode()
                         </a>
                       </div>
                     </div>
