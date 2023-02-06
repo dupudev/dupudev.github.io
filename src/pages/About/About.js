@@ -78,12 +78,15 @@ const About = ({ aboutAnime, setAboutAnime }) => {
               </span>
             </div>
             <p className={aboutAnime ? style.anime : undefined}>
-              After graduation in Environmental Engineering I have decided to
-              switch my carrier path and become Front-End Web Developer. I don't
-              have any previous working experience but I'm highly motivated and
-              looking for an opportunity to work, improve and expand my
-              knowledge in field of Web development. <br /> I don't give up easy
-              and I always give my best to find solution for any problem.
+              After graduation in Environmental Engineering at Faculty of
+              Technical Sciences, University of Novi Sad, I worked as a
+              Laboratory Technician at the same faculty for two and a half
+              years. Later I have decided to switch my carrier path and become
+              Front-End Web Developer. I don't have any previous working
+              experience but I am looking for an opportunity to work, improve
+              and expand my knowledge in field of Web development. <br /> I
+              don't give up easily and I always do my best to find a solution
+              for any problem.
             </p>
             <a
               href='./data/resume.pdf'
