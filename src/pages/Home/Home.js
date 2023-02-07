@@ -250,7 +250,7 @@ const Home = ({ homeAnime, setHomeAnime, cta2Anime, setCta2Anime }) => {
           <div className={style.heading}>
             <h2>LATEST PROJECTS</h2>
           </div>
-          <Row className={`${style.weather_app} gap-4  gap-xxl-5`}>
+          <Row className={`${style.weather_app} gap-4 ps-2 gap-xxl-5`}>
             <Col
               xs={{ span: 11 }}
               sm={{ span: 12 }}
@@ -290,7 +290,7 @@ const Home = ({ homeAnime, setHomeAnime, cta2Anime, setCta2Anime }) => {
                   of searched location.
                 </p>
               </div>
-              <div className='d-flex gap-3'>
+              <div className='d-flex gap-3 align-self-center align-self-sm-start'>
                 <a
                   href='https://dupudev.github.io/react-weather-app/'
                   target='_blank'
@@ -308,7 +308,7 @@ const Home = ({ homeAnime, setHomeAnime, cta2Anime, setCta2Anime }) => {
               </div>
             </Col>
           </Row>
-          <Row className={`${style.fake_store} gap-4  gap-xxl-5`}>
+          <Row className={`${style.fake_store} gap-4 ps-2 gap-xxl-5`}>
             <Col
               xs={{ span: 11, order: 2 }}
               sm={{ span: 12, order: 2 }}
@@ -333,7 +333,7 @@ const Home = ({ homeAnime, setHomeAnime, cta2Anime, setCta2Anime }) => {
                   well.
                 </p>
               </div>
-              <div className='d-flex gap-3'>
+              <div className='d-flex gap-3 align-self-center align-self-sm-start'>
                 <a
                   href='https://dupudev.github.io/react-simple-web-shop/'
                   target='_blank'

@@ -62,7 +62,7 @@ const About = ({ aboutAnime, setAboutAnime }) => {
         animate={{ opacity: 1 }}
         className={style.content}
       >
-        <Row className='gap-5 gap-lg-0'>
+        <Row className='gap-5 gap-lg-0 '>
           <Col
             xs={{ span: 12, order: 2 }}
             lg={{ span: 7, offset: 0, order: 1 }}
@@ -88,15 +88,17 @@ const About = ({ aboutAnime, setAboutAnime }) => {
               don't give up easily and I always do my best to find a solution
               for any problem.
             </p>
-            <a
-              href='./data/resume.pdf'
-              download='[CV] Dušan Puzigaća.pdf'
-              className={`${style.btn_download} ${
-                aboutAnime ? style.anime : ''
-              }`}
-            >
-              downloadCV()
-            </a>
+            <div className='d-flex justify-content-center justify-content-sm-start'>
+              <a
+                href='./data/resume.pdf'
+                download='[CV] Dušan Puzigaća.pdf'
+                className={`${style.btn_download} ${
+                  aboutAnime ? style.anime : ''
+                } `}
+              >
+                downloadCV()
+              </a>
+            </div>
           </Col>
           <Col
             xs={{ span: 10, offset: 1, order: 1 }}

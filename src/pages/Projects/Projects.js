@@ -112,7 +112,7 @@ const Projects = ({ projectsAnime, setProjectsAnime }) => {
           xl={3}
           className={`${style.projects_row} ${
             projectsAnime ? style.anime : undefined
-          } gy-5`}
+          } gy-5 ps-2`}
           onAnimationEnd={() => {
             setProjectsAnime(false);
             setBlockHeight(projects.current.scrollHeight);

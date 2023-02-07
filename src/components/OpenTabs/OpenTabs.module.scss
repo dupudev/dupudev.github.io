@@ -3,6 +3,7 @@
 .open_tabs {
   position: sticky;
   top: 0;
+  padding-right: 3rem;
   z-index: 5;
   @include flex();
   font-family: $font-secondary;
