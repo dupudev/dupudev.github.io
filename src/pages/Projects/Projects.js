@@ -130,12 +130,17 @@ const Projects = ({ projectsAnime, setProjectsAnime }) => {
                   exit={{ opacity: 0 }}
                 >
                   <article
-                    className={`${style[project.category]} me-2 mx-sm-3 pb-4`}
+                    className={` ${style[project.category]} me-2 mx-sm-3`}
                   >
                     <div className={style.project_img}>
                       <img src={project.img} alt={`${project.title} image`} />
                     </div>
-                    <div className={style.project_text}>
+                    <div className={style.project_overlay}></div>
+                    <div
+                      className={`${style.project_text} ${
+                        style[project.category]
+                      } d-flex flex-column justify-content-center `}
+                    >
                       <h4 className={`${style[project.category]}`}>
                         {project.title}
                       </h4>
@@ -145,7 +150,7 @@ const Projects = ({ projectsAnime, setProjectsAnime }) => {
                           href={project.url}
                           target='_blank'
                         >
-                          runApp()
+                          {project.category === 'react' ? 'runApp()' : 'open()'}
                         </a>
                         <a
                           className={style.btn_github}

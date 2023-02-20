@@ -263,38 +263,59 @@
       }
 
       article {
-        border-radius: 15px;
+        position: relative;
+        border-radius: 5px;
         overflow: hidden;
         transition: $transition;
         &:hover {
           .project_img {
-            transform: scale(1.1);
+            transform: scale(1.05);
+          }
+          .project_text {
+            backdrop-filter: blur(1px);
+            opacity: 1;
+          }
+          .project_overlay {
+            opacity: 0.8;
           }
         }
-        &.react {
-          background-color: $clr_blue-dark;
-          &:hover {
-            box-shadow: 0 0 10px 3px $clr_blue;
-            color: $clr_blue;
-          }
+        &.react:hover {
+          box-shadow: 0 0 2px 2px $clr_blue;
         }
-        &.static {
-          background-color: $clr_purple-dark;
-          &:hover {
-            box-shadow: 0 0 10px 3px $clr_purple;
-            color: $clr_purple;
-          }
+        &.static:hover {
+          box-shadow: 0 0 2px 2px $clr_purple;
         }
+
         .project_img {
-          border-radius: 15px;
-          overflow: hidden;
+          transition: $transition;
+        }
+        .project_overlay {
+          position: absolute;
+          inset: 0;
+          background-color: $clr_bg-light;
+          opacity: 0;
           transition: $transition;
         }
         .project_text {
+          position: absolute;
+          inset: 0;
+          opacity: 0;
+          transition: $transition;
+          &.react {
+            h4 {
+              color: $clr_blue;
+            }
+          }
+          &.static {
+            h4 {
+              color: $clr_purple;
+            }
+          }
           h4 {
             font-size: 1.5rem;
             text-align: center;
-            margin: 2rem 0;
+            margin-bottom: 2rem;
+            font-weight: 700;
           }
           .btn_run {
             @include btn(1rem, $clr_red, $clr_red-dark);

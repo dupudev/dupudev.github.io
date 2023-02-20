@@ -483,7 +483,7 @@
         margin-bottom: 7rem;
         .project_img {
           overflow: hidden;
-          border-radius: 15px;
+          border-radius: 5px;
           transition: $transition;
           opacity: 0;
           transform: translateX(-100px);
@@ -496,9 +496,9 @@
             transition: $transition;
           }
           &:hover {
-            box-shadow: 0 0 10px 3px $clr_blue;
+            box-shadow: 0 0 5px 2px $clr_blue;
             img {
-              transform: scale(1.1);
+              transform: scale(1.05);
             }
           }
         }
@@ -530,7 +530,7 @@
       .fake_store {
         .project_img {
           overflow: hidden;
-          border-radius: 15px;
+          border-radius: 5px;
           transition: $transition;
           transform: translateX(100px);
           opacity: 0;
@@ -542,9 +542,9 @@
             transition: $transition;
           }
           &:hover {
-            box-shadow: 0 0 10px 3px $clr_green;
+            box-shadow: 0 0 5px 2px $clr_green;
             img {
-              transform: scale(1.1);
+              transform: scale(1.05);
             }
           }
         }

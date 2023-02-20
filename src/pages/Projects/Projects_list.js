@@ -1,5 +1,14 @@
 export const projects_list = [
   {
+    id: 8,
+    title: 'Fitness Trainer',
+    category: 'static',
+    img: './img/projects/fitness_trainer.png',
+    github_url:
+      'https://github.com/dupudev/static-06-fitness-trainer-html-sass-js',
+    url: 'https://dupudev.github.io/static-06-fitness-trainer-html-sass-js/',
+  },
+  {
     id: 7,
     title: 'Weather App',
     category: 'react',
@@ -56,5 +65,3 @@ export const projects_list = [
     url: 'https://dupudev.github.io/react-shopping-list/',
   },
 ];
-
-
