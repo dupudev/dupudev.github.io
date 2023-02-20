@@ -84,9 +84,7 @@ const About = ({ aboutAnime, setAboutAnime }) => {
               years. Later I have decided to switch my carrier path and become
               Front-End Web Developer. I don't have any previous working
               experience but I am looking for an opportunity to work, improve
-              and expand my knowledge in field of Web development. <br /> I
-              don't give up easily and I always do my best to find a solution
-              for any problem.
+              and expand my knowledge in field of Web development.
             </p>
             <div className='d-flex justify-content-center justify-content-sm-start'>
               <a
