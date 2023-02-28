@@ -213,8 +213,12 @@
   .content {
     padding: 2rem 0 2rem 3rem;
     overflow: hidden;
-    .buttons {
-      padding-bottom: 4rem;
+
+    .select_menu {
+      cursor: pointer;
+      width: 12rem;
+      position: relative;
+
       &.anime {
         opacity: 0;
         transform: translateY(50px);
@@ -233,25 +237,75 @@
           transform: translateY(0);
         }
       }
-      .btn_all {
-        @include btn(1.1rem, $clr_green, $clr_green-dark);
-        &.active {
-          background-color: $clr_green-dark;
+
+      .select_btn {
+        color: $clr_text-light;
+        padding: 0.5em 0.75em;
+        transition: transform $transition, background-color $transition;
+        &.all {
+          background-color: $clr_bg-dark;
+          border: 1px solid $clr_green;
+          &:hover {
+            background-color: $clr_green-dark;
+          }
+          &.active {
+            background-color: $clr_green-dark;
+          }
+        }
+        &.react {
+          background-color: $clr_bg-dark;
+          border: 1px solid $clr_blue;
+          &:hover {
+            background-color: $clr_blue-dark;
+          }
+          &.active {
+            background-color: $clr_blue-dark;
+          }
+        }
+        &.static {
+          background-color: $clr_bg-dark;
+          border: 1px solid $clr_purple;
+          &:hover {
+            background-color: $clr_purple-dark;
+          }
+          &.active {
+            background-color: $clr_purple-dark;
+          }
         }
       }
-      .btn_react {
-        @include btn(1.1rem, $clr_blue, $clr_blue-dark);
-        &.active {
-          background-color: $clr_blue-dark;
+      .options {
+        position: absolute;
+        z-index: 3;
+        width: inherit;
+        top: 110%;
+        background-color: $clr_bg-dark;
+        border: 1px solid $clr_text-dark;
+
+        .option {
+          padding: 0.5em 0.75em;
+          &.all:hover {
+            background-color: $clr_green-dark;
+          }
+          &.react:hover {
+            background-color: $clr_blue-dark;
+          }
+          &.static:hover {
+            background-color: $clr_purple-dark;
+          }
         }
-      }
-      .btn_static {
-        @include btn(1.1rem, $clr_purple, $clr_purple-dark);
-        &.active {
-          background-color: $clr_purple-dark;
+
+        &.all {
+          border: 1px solid $clr_green;
+        }
+        &.react {
+          border: 1px solid $clr_blue;
+        }
+        &.static {
+          border: 1px solid $clr_purple;
         }
       }
     }
+
     .projects_row {
       &.anime {
         opacity: 0;

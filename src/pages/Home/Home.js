@@ -26,6 +26,7 @@ const Home = ({ homeAnime, setHomeAnime, cta2Anime, setCta2Anime }) => {
   const { ref: weatherText, inView: weatherTextInView } = useInView({
     triggerOnce: true,
     rootMargin: '0px 0px -250px 0px',
+    delay: 300,
   });
   const { ref: storeImg, inView: storeImgInView } = useInView({
     triggerOnce: true,
@@ -34,6 +35,7 @@ const Home = ({ homeAnime, setHomeAnime, cta2Anime, setCta2Anime }) => {
   const { ref: storeText, inView: storeTextInView } = useInView({
     triggerOnce: true,
     rootMargin: '0px 0px -250px 0px',
+    delay: 300,
   });
   const { ref: cta2, inView: cta2InView } = useInView({
     triggerOnce: true,

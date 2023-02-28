@@ -8,20 +8,35 @@ import Col from 'react-bootstrap/Col';
 import { projects_list } from './Projects_list';
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { VscChevronDown } from 'react-icons/vsc';
 
 const Projects = ({ projectsAnime, setProjectsAnime }) => {
   const projects = useRef();
+  const selectBtnText = useRef();
+  const dropdownMenu = useRef();
+
   const [blockHeight, setBlockHeight] = useState(null);
-  const [category, setCategory] = useState(null);
+  const [category, setCategory] = useState('all');
   const [filteredProjects, setFilteredProjects] = useState(projects_list);
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
     setBlockHeight(projects.current.scrollHeight);
+
+    const closeDropdownMenu = (event) => {
+      console.log(event);
+      setActive(false);
+    };
+
+    document.body.addEventListener('click', closeDropdownMenu);
+    return () => {
+      document.body.removeEventListener('click', closeDropdownMenu);
+    };
   }, []);
 
   useEffect(() => {
     const filtered_list = projects_list.filter((project) => {
-      if (category == null) {
+      if (category == 'all') {
         return project;
       } else if (project.category === category) {
         return project;
@@ -29,6 +44,20 @@ const Projects = ({ projectsAnime, setProjectsAnime }) => {
     });
     setFilteredProjects(filtered_list);
   }, [category]);
+
+  const openDropdownMenu = (event) => {
+    event.stopPropagation();
+    setActive((prev) => !prev);
+  };
+
+  const selectOption = (event) => {
+    event.stopPropagation();
+    console.log(event);
+    setCategory(event.target.id);
+    setActive(false);
+
+    selectBtnText.current.innerText = event.target.innerText;
+  };
 
   return (
     <Container ref={projects} className={`${style.projects}`}>
@@ -77,33 +106,49 @@ const Projects = ({ projectsAnime, setProjectsAnime }) => {
 
       <div className={style.content}>
         <div
-          className={`${style.buttons} ${
+          className={`${style.select_menu} ${
             projectsAnime ? style.anime : undefined
-          } d-flex flex-column flex-sm-row align-items-center justify-content-center gap-4`}
+          } ms-auto me-4 mb-5`}
         >
-          <button
-            className={`${style.btn_all} ${!category && style.active}`}
-            onClick={() => setCategory(null)}
+          <div
+            ref={dropdownMenu}
+            className={`${style.select_btn} ${style[category]} ${
+              active && style.active
+            } d-flex justify-content-between align-items-center`}
+            onClick={(event) => openDropdownMenu(event)}
           >
-            All
-          </button>
-          <button
-            className={`${style.btn_react} ${
-              category === 'react' && style.active
+            <span ref={selectBtnText}>All</span>
+            <VscChevronDown className='fs-4' />
+          </div>
+          <ul
+            className={`${style.options}  p-0 m-0 ${
+              active ? 'd-block' : 'd-none'
             }`}
-            onClick={() => setCategory('react')}
           >
-            React Apps
-          </button>
-          <button
-            className={`${style.btn_static} ${
-              category === 'static' && style.active
-            }`}
-            onClick={() => setCategory('static')}
-          >
-            Static Websites
-          </button>
+            <li
+              className={`${style.option} ${style.all}`}
+              id='all'
+              onClick={(event) => selectOption(event)}
+            >
+              All
+            </li>
+            <li
+              className={`${style.option} ${style.react}`}
+              id='react'
+              onClick={(event) => selectOption(event)}
+            >
+              React Apps
+            </li>
+            <li
+              className={`${style.option} ${style.static}`}
+              id='static'
+              onClick={(event) => selectOption(event)}
+            >
+              Static Websites
+            </li>
+          </ul>
         </div>
+
         <Row
           as={motion.div}
           layout

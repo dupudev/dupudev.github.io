@@ -38,7 +38,6 @@ const Contact = ({ contactAnime, setContactAnime }) => {
 
   const sendEmail = (event) => {
     event.preventDefault();
-
     emailjs
       .sendForm(
         'service_8fxbuim',
@@ -50,7 +49,7 @@ const Contact = ({ contactAnime, setContactAnime }) => {
         setName('');
         setEmail('');
         setMessage('');
-
+        setEmailValid(false);
         setMessageSent(true);
         setTimeout(() => {
           setMessageSent(false);
