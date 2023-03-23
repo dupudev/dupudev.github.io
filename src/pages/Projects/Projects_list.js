@@ -1,5 +1,13 @@
 export const projects_list = [
   {
+    id: 9,
+    title: 'Employees CRUD',
+    category: 'react',
+    img: './img/projects/employees_crud.png',
+    github_url: 'https://github.com/dupudev/react-employees-crud',
+    url: 'https://dupudev.github.io/react-employees-crud/',
+  },
+  {
     id: 8,
     title: 'Fitness Trainer',
     category: 'static',
